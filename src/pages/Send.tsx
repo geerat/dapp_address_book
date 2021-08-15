@@ -53,8 +53,7 @@ export const Send = () => {
 
     useEffect(() => {
         if (state.status !== 'Mining') {
-            console.log('Show success page');
-            console.log(state);
+            console.log('Show success page'); //TODO: success page and error handling
         }
     }, [state]);
 
@@ -85,7 +84,7 @@ export const Send = () => {
                     onBlur={validateInput}
                     errorMessage={error}
                 />
-                <div className="pb-8">Tx fee: </div>
+                {/* <div className="pb-8">Tx fee: </div> TODO: Gas fees*/}
                 <Button label="Send" type="primary" onClick={handleSend} />
             </MobileView>
         </div>

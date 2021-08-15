@@ -29,7 +29,7 @@ export const Contacts = (props: Props) => {
             <div>
                 <MobileView>
                     <Button
-                        label="add contact"
+                        label="add contact" //TODO: nicer add contact button
                         type="text"
                         onClick={() => history.push('/contacts/add')}
                         icon={
