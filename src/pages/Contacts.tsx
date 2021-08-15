@@ -50,9 +50,20 @@ export const Contacts = (props: Props) => {
                         }
                     />
                 </MobileView>
-                <div className="overflow-auto" style={{ height: '80vh' }}>
-                    {contactTiles}
-                </div>
+
+                {contactTiles.length ? (
+                    <div className="overflow-auto" style={{ height: '80vh' }}>
+                        contactTiles
+                    </div>
+                ) : (
+                    <div
+                        className="overflow-auto flex flex-col items-center justify-center"
+                        style={{ height: '80vh' }}
+                    >
+                        <p>It's lonely here. Add some contacts to get started.</p>
+                    </div>
+                )}
+
                 <MobileView>
                     <Button
                         label="Disconnect"

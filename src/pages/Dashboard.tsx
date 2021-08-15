@@ -2,9 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button } from '../components/generics/Button';
 import { useEthers, useEtherBalance } from '@usedapp/core';
-import { formatEther } from '@ethersproject/units';
 import { ConnectWalletPrompt } from '../components/ConnectWalletPrompt';
-import { BalanceTile } from '../components/BalanceTile';
 import { MobileView } from '../components/surfaces/MobileView';
 
 interface Props {}
