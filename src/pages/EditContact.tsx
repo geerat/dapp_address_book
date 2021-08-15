@@ -19,8 +19,7 @@ export const EditContact = (props: Props) => {
 
     useEffect(() => {
         setContact(getContact(id));
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [id]);
+    }, [getContact, id]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setContact({ ...contact, [e.currentTarget.id]: e.currentTarget.value });
@@ -51,7 +50,7 @@ export const EditContact = (props: Props) => {
                     <Button label="save" type="primary" onClick={handleSave} />
                 </>
             ) : (
-                <p>loading</p>
+                <p>loading...</p>
             )}
         </div>
     );

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button } from '../components/generics/Button';
 import { Input } from '../components/generics/Input';
+import { Toolbar } from '../components/Toolbar';
 import { ContactDetails, useContactData } from '../hooks/useContactData';
 
 interface Props {}
@@ -26,7 +27,7 @@ export const AddContact = (props: Props) => {
 
     return (
         <div>
-            Add Contact
+            <Toolbar header="New Contact" backPath="/contacts" />
             <Input label="Name" id="name" value={contact.name} onChange={handleChange} />
             <Input
                 label="Ethereum Address"

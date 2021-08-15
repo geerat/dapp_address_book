@@ -14,14 +14,15 @@ export const Contacts = (props: Props) => {
     const [contacts, setContacts] = useState<ContactList>([]);
     useEffect(() => {
         setContacts(getContactList());
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [getContactList]);
 
     const handleDisconnect = () => {
         console.log('handle disconnect');
     };
 
-    const contactTiles = contacts.map((contact) => <ContactTile contact={contact} />);
+    const contactTiles = contacts.map((contact) => (
+        <ContactTile key={contact.id} contact={contact} />
+    ));
     return (
         <div>
             <Toolbar header="Address Book" backPath="/" />
@@ -47,7 +48,9 @@ export const Contacts = (props: Props) => {
                         </svg>
                     }
                 />
-                {contactTiles}
+                <div className="overflow-auto" style={{ height: '80vh' }}>
+                    {contactTiles}
+                </div>
                 <MobileView>
                     <Button
                         label="Disconnect"
