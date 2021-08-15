@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { Button } from '../components/generics/Button';
 import { Input } from '../components/generics/Input';
+import { MobileView } from '../components/surfaces/MobileView';
 import { Toolbar } from '../components/Toolbar';
 import { Contact, useContactData } from '../hooks/useContactData';
 
@@ -33,25 +34,23 @@ export const EditContact = (props: Props) => {
     return (
         <div>
             <Toolbar header="Edit" backPath={`/contacts/${id}`} />
-            {contact?.name && contact?.address ? (
-                <>
-                    <Input
-                        id="name"
-                        label="Name"
-                        value={contact?.name}
-                        onChange={handleChange}
-                    />
-                    <Input
-                        id="address"
-                        label="Address"
-                        value={contact?.address}
-                        onChange={handleChange}
-                    />
-                    <Button label="save" type="primary" onClick={handleSave} />
-                </>
-            ) : (
-                <p>loading...</p>
-            )}
+            <MobileView>
+                <Input
+                    type="text"
+                    id="name"
+                    label="Name"
+                    value={contact?.name}
+                    onChange={handleChange}
+                />
+                <Input
+                    type="text"
+                    id="address"
+                    label="Address"
+                    value={contact?.address}
+                    onChange={handleChange}
+                />
+                <Button label="save" type="primary" onClick={handleSave} />
+            </MobileView>
         </div>
     );
 };

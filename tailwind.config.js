@@ -10,6 +10,7 @@ module.exports = {
                 'sylo-sec-hover': '#354974',
                 'main-secondary': '#8A96AA',
                 'blue-primary': '#495162',
+                'grey-input': '#F6F6F6',
             },
             fontFamily: {
                 'sylo-sb': [

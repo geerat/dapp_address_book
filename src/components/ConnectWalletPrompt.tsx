@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from './generics/Button';
 import { Typography } from './generics/Typography';
+import { MetaMaskIcon } from './MetaMaskIcon';
 import { CenterVertically } from './surfaces/CenterVertically';
 
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
 export const ConnectWalletPrompt = (props: Props) => {
     return (
         <CenterVertically>
+            <MetaMaskIcon />
             <Typography variant="heading" element="h2" center={true}>
                 Crypto address book
             </Typography>

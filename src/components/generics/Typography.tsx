@@ -7,7 +7,7 @@ interface Props {
 }
 
 const variantClasses = {
-    paragraph: 'px-5 text-blue-primary text-lg',
+    paragraph: 'break-words px-5 text-blue-primary text-lg',
     heading: 'p-2 text-4xl px-5 py-6 ',
     subheading: 'p-2 text-2xl',
 };

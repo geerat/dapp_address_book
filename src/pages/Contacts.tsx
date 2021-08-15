@@ -27,27 +27,29 @@ export const Contacts = (props: Props) => {
         <div>
             <Toolbar header="Address Book" backPath="/" />
             <div>
-                <Button
-                    label="add contact"
-                    type="text"
-                    onClick={() => history.push('/contacts/add')}
-                    icon={
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M12 4v16m8-8H4"
-                            />
-                        </svg>
-                    }
-                />
+                <MobileView>
+                    <Button
+                        label="add contact"
+                        type="text"
+                        onClick={() => history.push('/contacts/add')}
+                        icon={
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M12 4v16m8-8H4"
+                                />
+                            </svg>
+                        }
+                    />
+                </MobileView>
                 <div className="overflow-auto" style={{ height: '80vh' }}>
                     {contactTiles}
                 </div>

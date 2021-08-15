@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button } from '../components/generics/Button';
 import { Input } from '../components/generics/Input';
+import { MobileView } from '../components/surfaces/MobileView';
 import { Toolbar } from '../components/Toolbar';
 import { ContactDetails, useContactData } from '../hooks/useContactData';
 
@@ -26,16 +27,25 @@ export const AddContact = (props: Props) => {
     };
 
     return (
-        <div>
+        <>
             <Toolbar header="New Contact" backPath="/contacts" />
-            <Input label="Name" id="name" value={contact.name} onChange={handleChange} />
-            <Input
-                label="Ethereum Address"
-                id="address"
-                value={contact.address}
-                onChange={handleChange}
-            />
-            <Button label="Add Contact" onClick={handleAddContact} type="text" />
-        </div>
+            <MobileView>
+                <Input
+                    label="Name"
+                    id="name"
+                    value={contact.name}
+                    onChange={handleChange}
+                    type="text"
+                />
+                <Input
+                    label="Ethereum Address"
+                    id="address"
+                    value={contact.address}
+                    onChange={handleChange}
+                    type="text"
+                />
+                <Button label="Add Contact" onClick={handleAddContact} type="primary" />
+            </MobileView>
+        </>
     );
 };

@@ -6,7 +6,7 @@ interface Props {
 
 export const CenterVertically = (props: Props) => {
     return (
-        <div className="flex flex-col justify-center items-center h-full">
+        <div className="flex flex-col justify-center items-center h-screen">
             {props.children}
         </div>
     );
