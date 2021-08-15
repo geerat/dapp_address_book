@@ -1,10 +1,12 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useCallback } from 'react';
+
 export type ContactList = Array<BaseContact>;
+
 type DataLayerSchema = {
     contacts: Array<Contact>;
 };
-export interface ContactDetails {
+export interface ContactEdits {
     name: string;
     address: string;
 }
@@ -32,7 +34,7 @@ export const useContactData = () => {
         localStorage.setItem('tempkey', JSON.stringify(data));
     };
 
-    const addContact = (contact: ContactDetails) => {
+    const addContact = (contact: ContactEdits) => {
         //TODO: what happens if theres nothing in ls, or if a contact with that id already exists
         const contactsData = getContactData();
         const id = uuidv4();
@@ -40,7 +42,7 @@ export const useContactData = () => {
         saveContactData(contactsData);
     };
 
-    const editContact = (id: string, edits: ContactDetails) => {
+    const editContact = (id: string, edits: ContactEdits) => {
         const contactsData = getContactData();
         let contact = contactsData.contacts.find((contact) => contact.id === id);
         if (!contact) return;

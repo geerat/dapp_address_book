@@ -27,15 +27,8 @@ export const Dashboard = (props: Props) => {
         <MobileView>
             {/* {etherBalance && `${parseFloat(formatEther(etherBalance)).toFixed(2)}ETH`} */}
             {account && etherBalance ? (
-                <div className="h-screen flex flex-col justify-center">
-                    <div className="pb-10">
-                        <Button
-                            label="View Contacts"
-                            type="primary"
-                            onClick={goToContacts}
-                        />
-                    </div>
-                    <BalanceTile balance={formatEther(etherBalance)} account={account} />
+                <div className="flex flex-col justify-center items-center w-screen h-screen">
+                    <Button label="View Contacts" type="primary" onClick={goToContacts} />
                 </div>
             ) : (
                 <ConnectWalletPrompt handleConnectWallet={connectWallet} />

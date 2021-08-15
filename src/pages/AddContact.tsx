@@ -4,15 +4,15 @@ import { Button } from '../components/generics/Button';
 import { Input } from '../components/generics/Input';
 import { MobileView } from '../components/surfaces/MobileView';
 import { Toolbar } from '../components/Toolbar';
-import { ContactDetails, useContactData } from '../hooks/useContactData';
+import { ContactEdits, useContactData } from '../hooks/useContactData';
 
 interface Props {}
 
 export const AddContact = (props: Props) => {
     const { addContact } = useContactData();
     const history = useHistory();
-    const [contact, setContact] = useState<ContactDetails>(
-        (): ContactDetails => ({
+    const [contact, setContact] = useState<ContactEdits>(
+        (): ContactEdits => ({
             name: '',
             address: '',
         })
