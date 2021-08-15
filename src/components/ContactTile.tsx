@@ -1,7 +1,7 @@
-import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { BaseContact } from '../hooks/useContactData';
-import { Button } from './Button';
+import { Typography } from './generics/Typography';
+import { ProfilePic } from './ProfilePic';
 
 interface Props {
     contact: BaseContact;
@@ -9,14 +9,21 @@ interface Props {
 
 export const ContactTile = (props: Props) => {
     const history = useHistory();
-    const navigateTo = (page: string) => {
-        history.push(`/contacts/${props.contact.id}/${page}`);
+    const handleSelect = () => {
+        history.push(`/contacts/${props.contact.id}/`);
     };
 
     return (
-        <div>
-            {props.contact.name}{' '}
-            <Button label={'Send'} type="icon" onClick={() => navigateTo('send')} />
+        <div
+            className="h-20 flex flex-row justify-left items-center"
+            onClick={handleSelect}
+        >
+            <div className="px-6">
+                <ProfilePic name={props.contact.name} size="icon" />
+            </div>
+            <Typography variant="paragraph" element="p">
+                {props.contact.name}
+            </Typography>
         </div>
     );
 };

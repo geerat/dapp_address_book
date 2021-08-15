@@ -1,8 +1,11 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { Button } from '../components/Button';
-import { useEthers, useEtherBalance, useTransactions } from '@usedapp/core';
+import { Button } from '../components/generics/Button';
+import { useEthers, useEtherBalance } from '@usedapp/core';
 import { formatEther } from '@ethersproject/units';
+import { ConnectWalletPrompt } from '../components/ConnectWalletPrompt';
+import { BalanceTile } from '../components/BalanceTile';
+import { MobileView } from '../components/surfaces/MobileView';
 
 interface Props {}
 
@@ -21,20 +24,16 @@ export const Dashboard = (props: Props) => {
     };
 
     return (
-        <div>
-            <h3>Crypto address book</h3>
-            <p>The easiest and quickest way to manage and pay your contacts.</p>
-            <p>Connect your wallet to begin.</p>
-            {etherBalance && `${parseFloat(formatEther(etherBalance)).toFixed(2)}ETH`}
-            <br />
-            {account ? (
+        <MobileView>
+            {/* {etherBalance && `${parseFloat(formatEther(etherBalance)).toFixed(2)}ETH`} */}
+            {account && etherBalance ? (
                 <>
-                    `${account}`
+                    <BalanceTile balance={formatEther(etherBalance)} account={account} />
                     <Button label="Contacts" type="primary" onClick={goToContacts} />
                 </>
             ) : (
-                <Button label="Connect Wallet" type="primary" onClick={connectWallet} />
+                <ConnectWalletPrompt handleConnectWallet={connectWallet} />
             )}
-        </div>
+        </MobileView>
     );
 };

@@ -8,6 +8,8 @@ module.exports = {
                 'orange-300': '#BE4620',
                 'sylo-sec': '#4D6AA7',
                 'sylo-sec-hover': '#354974',
+                'main-secondary': '#8A96AA',
+                'blue-primary': '#495162',
             },
             fontFamily: {
                 'sylo-sb': [

@@ -1,11 +1,14 @@
 import { useSendTransaction } from '@usedapp/core';
 import React, { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
-import { Button } from '../components/Button';
-import { Input } from '../components/Input';
+import { useParams } from 'react-router-dom';
+import { Button } from '../components/generics/Button';
+import { Input } from '../components/generics/Input';
 import { Contact, useContactData } from '../hooks/useContactData';
 import { useEthers, useEtherBalance } from '@usedapp/core';
 import { parseEther } from '@ethersproject/units';
+import { Toolbar } from '../components/Toolbar';
+import { MobileView } from '../components/surfaces/MobileView';
+import { ProfilePic } from '../components/ProfilePic';
 
 type SendParams = {
     id: string;
@@ -17,15 +20,15 @@ export const Send = () => {
     const etherBalance = useEtherBalance(account);
     //
 
-    const [contact, setContact] = useState<Contact>();
+    const [contact, setContact] = useState<Contact>({ id: '', name: '', address: '' });
     const [amount, setAmount] = useState<string>('');
 
-    const history = useHistory();
     const { getContact } = useContactData();
     const { id } = useParams<SendParams>();
 
     useEffect(() => {
         setContact(getContact(id));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -38,18 +41,30 @@ export const Send = () => {
     };
 
     useEffect(() => {
-        if (state.status != 'Mining') {
+        if (state.status !== 'Mining') {
             console.log('Show success page');
             console.log(state);
         }
     }, [state]);
     return (
         <div>
-            {etherBalance && `Your account balance: ${etherBalance}`}
-            send to: {contact?.name}
-            <Input label="Amount" id="amount" value={amount} onChange={handleChange} />
-            Tx fee: {amount}
-            <Button label="Send" type="primary" onClick={handleSend} />
+            <Toolbar
+                header={`Send to ${contact.name}`}
+                backPath="/contacts"
+                button={{ text: 'edit', path: `/contacts/${id}/edit` }}
+            />
+            <MobileView>
+                {etherBalance && `Your account balance: ${etherBalance}`}
+                <ProfilePic name={contact.name} size="large" />
+                <Input
+                    label="Amount"
+                    id="amount"
+                    value={amount}
+                    onChange={handleChange}
+                />
+                Tx fee: {amount}
+                <Button label="Send" type="primary" onClick={handleSend} />
+            </MobileView>
         </div>
     );
 };

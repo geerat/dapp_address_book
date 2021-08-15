@@ -4,7 +4,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './tailwind.output.css';
 import { ChainId, DAppProvider } from '@usedapp/core';
-import { Toolbar } from './components/Toolbar';
 
 const config = {
     supportedChains: [ChainId.Ropsten],
@@ -13,9 +12,7 @@ const config = {
 ReactDOM.render(
     <React.StrictMode>
         <DAppProvider config={config}>
-            <Toolbar>
-                <App />
-            </Toolbar>
+            <App />
         </DAppProvider>
     </React.StrictMode>,
     document.getElementById('root')

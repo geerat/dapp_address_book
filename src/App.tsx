@@ -3,6 +3,7 @@ import { Dashboard } from './pages/Dashboard';
 import { Contacts } from './pages/Contacts';
 import { AddContact } from './pages/AddContact';
 import { Send } from './pages/Send';
+import { EditContact } from './pages/EditContact';
 
 function App() {
     return (
@@ -11,7 +12,10 @@ function App() {
                 <Route path="/contacts/add">
                     <AddContact />
                 </Route>
-                <Route path="/contacts/:id/send">
+                <Route path="/contacts/:id/edit">
+                    <EditContact />
+                </Route>
+                <Route path="/contacts/:id/">
                     <Send />
                 </Route>
 

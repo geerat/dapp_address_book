@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Button } from '../components/Button';
-import { Input } from '../components/Input';
+import { Button } from '../components/generics/Button';
+import { Input } from '../components/generics/Input';
 import { ContactDetails, useContactData } from '../hooks/useContactData';
 
 interface Props {}
@@ -34,7 +34,7 @@ export const AddContact = (props: Props) => {
                 value={contact.address}
                 onChange={handleChange}
             />
-            <Button label="Add Contact" onClick={handleAddContact} type="primary" />
+            <Button label="Add Contact" onClick={handleAddContact} type="text" />
         </div>
     );
 };
