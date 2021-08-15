@@ -1,4 +1,4 @@
-import { useGasPrice, useSendTransaction } from '@usedapp/core';
+import { useSendTransaction } from '@usedapp/core';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Button } from '../components/generics/Button';
