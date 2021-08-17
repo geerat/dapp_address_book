@@ -7,9 +7,9 @@ interface Props {
 }
 
 const variantClasses = {
-    paragraph: 'break-words px-5 text-blue-primary text-lg',
-    heading: 'p-2 text-4xl px-5 py-6 ',
-    subheading: 'p-2 text-2xl',
+    paragraph: 'p-2 break-words px-5 text-blue-primary text-lg',
+    heading: 'p-2 text-4xl px-5 py-6 break-words',
+    subheading: 'p-2 text-2xl break-words',
 };
 type Elements = 'h1' | 'h2' | 'p';
 type Variant = 'paragraph' | 'heading' | 'subheading';

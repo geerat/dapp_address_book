@@ -15,7 +15,7 @@ export const ContactTile = (props: Props) => {
 
     return (
         <div
-            className="h-20 flex flex-row justify-left items-center"
+            className="h-20 flex flex-row justify-left items-center cursor-pointer"
             onClick={handleSelect}
         >
             <div className="px-6">

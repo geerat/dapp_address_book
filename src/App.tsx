@@ -4,6 +4,8 @@ import { Contacts } from './pages/Contacts';
 import { AddContact } from './pages/AddContact';
 import { Send } from './pages/Send';
 import { EditContact } from './pages/EditContact';
+import { NotFoundPage } from './pages/NotFoundPage';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
     return (
@@ -18,15 +20,17 @@ function App() {
                 <Route path="/contacts/:id/">
                     <Send />
                 </Route>
-
                 <Route path="/contacts">
                     <Contacts />
                 </Route>
-
-                <Route path="/">
+                <Route exact path="/">
                     <Dashboard />
                 </Route>
+                <Route path="*">
+                    <NotFoundPage />
+                </Route>
             </Switch>
+            <ToastContainer />
         </Router>
     );
 }

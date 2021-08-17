@@ -5,9 +5,5 @@ interface Props {
 }
 
 export const MobileView = (props: Props) => {
-    return (
-        <div className="flex flex-col justify-center items-center mx-4">
-            {props.children}
-        </div>
-    );
+    return <div className="flex flex-col justify-center items-center px-4">{props.children}</div>;
 };

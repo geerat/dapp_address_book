@@ -9,8 +9,8 @@ interface Props {
 
 export const LinkButton = (props: Props) => {
     return (
-        <div className="pr-3">
-            <Link to={props.path}>{props.label}</Link>
+        <div className="px-3 py-5">
+            <Link className="text-lg" to={props.path}>{props.label}</Link>
         </div>
     );
 };

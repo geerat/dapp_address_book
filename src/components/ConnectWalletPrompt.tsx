@@ -3,7 +3,7 @@ import { Button } from './generics/Button';
 import { Typography } from './generics/Typography';
 import { MetaMaskIcon } from './MetaMaskIcon';
 import { CenterVertically } from './surfaces/CenterVertically';
-
+import 'react-toastify/dist/ReactToastify.css';
 interface Props {
     handleConnectWallet: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
@@ -21,11 +21,7 @@ export const ConnectWalletPrompt = (props: Props) => {
             <Typography variant="paragraph" element="p" className="pb-8" center={true}>
                 Connect your wallet to begin.
             </Typography>
-            <Button
-                label="Connect Wallet"
-                type="primary"
-                onClick={props.handleConnectWallet}
-            />
+            <Button label="Connect Wallet" type="primary" onClick={props.handleConnectWallet} />
         </CenterVertically>
     );
 };

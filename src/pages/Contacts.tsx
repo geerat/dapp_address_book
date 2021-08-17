@@ -53,7 +53,7 @@ export const Contacts = (props: Props) => {
 
                 {contactTiles.length ? (
                     <div className="overflow-auto" style={{ height: '80vh' }}>
-                        contactTiles
+                        {contactTiles}
                     </div>
                 ) : (
                     <div

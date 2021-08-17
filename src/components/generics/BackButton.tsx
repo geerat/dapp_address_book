@@ -12,7 +12,7 @@ export const BackButton = (props: Props) => {
     };
 
     return (
-        <div className="pl-6" onClick={handleClick}>
+        <div className="pl-6 cursor-pointer" onClick={handleClick}>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"

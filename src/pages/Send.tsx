@@ -38,9 +38,9 @@ export const Send = () => {
         setAmount(e.currentTarget.value);
     };
 
-    const handleSend = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    const handleSend = (): void => {
         const weiAmount = parseEther(amount);
-        sendTransaction({ to: contact?.address, value: weiAmount });
+        sendTransaction({ to: contact.address, value: weiAmount });
     };
 
     const validateInput = (): void => {
@@ -66,9 +66,7 @@ export const Send = () => {
             />
             <MobileView>
                 {etherBalance &&
-                    `Your account balance: ${parseFloat(
-                        formatEther(etherBalance)
-                    ).toFixed(4)} Eth`}
+                    `Your account balance: ${parseFloat(formatEther(etherBalance)).toFixed(4)} Eth`}
                 <div className="pt-10 pb-5">
                     <ProfilePic name={contact.name} size="large" />
                 </div>
@@ -84,7 +82,6 @@ export const Send = () => {
                     onBlur={validateInput}
                     errorMessage={error}
                 />
-                {/* <div className="pb-8">Tx fee: </div> TODO: Gas fees*/}
                 <Button label="Send" type="primary" onClick={handleSend} />
             </MobileView>
         </div>
