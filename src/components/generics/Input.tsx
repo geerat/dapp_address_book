@@ -25,9 +25,7 @@ export const Input = (props: Props) => {
                 type={props.type}
                 step="0.001"
             />
-            {props.errorMessage && (
-                <p className="text-red-500 italic">{props.errorMessage}</p>
-            )}
+            {props.errorMessage && <p className="text-red-500 italic">{props.errorMessage}</p>}
         </>
     );
 };
